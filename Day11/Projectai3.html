@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechZone | Future Ready</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080c14;
+            color: white;
+        }
+
+        header {
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #202b3b;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #39a0ff;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #c8d0df;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #39a0ff;
+        }
+
+        .header-button {
+            background: #1685ff;
+            color: white;
+            padding: 11px 18px;
+            border-radius: 25px;
+            text-decoration: none;
+        }
+
+        /* Asymmetrical hero */
+
+        #home {
+            padding: 65px 7%;
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 80% 50%,
+                #102b54 0%, #080c14 58%);
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: slideIn 0.8s ease;
+        }
+
+        .eyebrow {
+            color: #39a0ff;
+            letter-spacing: 4px;
+            font-size: 12px;
+            margin-bottom: 22px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(42px, 5.5vw, 76px);
+            line-height: 1.02;
+            margin-bottom: 22px;
+        }
+
+        .hero-text h1 span {
+            color: #1685ff;
+        }
+
+        .hero-text p {
+            color: #b5c0d0;
+            line-height: 1.8;
+            max-width: 420px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            background: #1685ff;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px #1685ff66;
+        }
+
+        .hero-image {
+            flex: 1.15;
+            min-width: 0;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 45% 12px 12px 12px;
+            border: 1px solid #2879d8;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Service strip */
+
+        .benefits {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 25px 7%;
+            background: #111925;
+            border-top: 1px solid #202b3b;
+            border-bottom: 1px solid #202b3b;
+        }
+
+        .benefit {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .benefit span {
+            font-size: 27px;
+            color: #39a0ff;
+        }
+
+        .benefit p {
+            color: #9eabbc;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        /* Categories */
+
+        #categories {
+            padding: 55px 7%;
+        }
+
+        .section-heading {
+            margin-bottom: 25px;
+        }
+
+        .section-heading p {
+            color: #9eabbc;
+            margin-top: 10px;
+        }
+
+        .category-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .category {
+            flex: 1;
+            min-width: 140px;
+            padding: 25px 15px;
+            background: #131d2a;
+            border: 1px solid #25354a;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .category:hover {
+            transform: translateY(-6px);
+            border-color: #1685ff;
+            background: #172b42;
+        }
+
+        .category .symbol {
+            font-size: 32px;
+            margin-bottom: 18px;
+        }
+
+        .category p {
+            color: #9eabbc;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        /* Products */
+
+        #products {
+            background: #f2f5f9;
+            color: #121925;
+            padding: 55px 7%;
+        }
+
+        #products .section-heading p {
+            color: #667085;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .product {
+            flex: 1;
+            min-width: 210px;
+            background: white;
+            border: 1px solid #e0e6ef;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px #172b4218;
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            padding: 15px;
+            background: #e8edf4;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-info p {
+            color: #697586;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .price {
+            color: #0878ed;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .cart {
+            background: #111925;
+            color: white;
+            padding: 9px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        /* Promotion */
+
+        #offer {
+            margin: 55px 7%;
+            padding: 45px;
+            border-radius: 15px;
+            background: linear-gradient(115deg, #103a70, #07111f 75%);
+            border: 1px solid #245ea2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        #offer h2 {
+            font-size: clamp(30px, 4vw, 48px);
+            margin: 12px 0;
+        }
+
+        #offer p {
+            color: #c0d1e5;
+            line-height: 1.7;
+        }
+
+        .discount {
+            font-size: 38px;
+            font-weight: bold;
+            color: #62b5ff;
+            animation: pulse 2s infinite;
+        }
+
+        footer {
+            padding: 30px 7%;
+            background: #05080e;
+            border-top: 1px solid #202b3b;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            color: #aeb8c7;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-25px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes pulse {
+            50% { text-shadow: 0 0 25px #1685ff; }
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 16px;
+            }
+
+            #home {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin: auto;
+            }
+
+            .hero-image {
+                width: 100%;
+            }
+
+            .hero-image img {
+                height: 260px;
+                border-radius: 12px;
+            }
+
+            .benefits {
+                justify-content: flex-start;
+            }
+
+            #offer {
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Tech<span>Zone.</span></div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#products">Products</a>
+            <a href="#offer">Offers</a>
+        </nav>
+
+        <a class="header-button" href="#products">Explore Store ↗</a>
+    </header>
+
+    <section id="home">
+        <div class="hero-text">
+            <p class="eyebrow">TECHNOLOGY. REIMAGINED.</p>
+
+            <h1>Upgrade<br>Your <span>World.</span></h1>
+
+            <p>
+                Discover powerful laptops, immersive audio and
+                smart gadgets designed for the way you live,
+                work and play.
+            </p>
+
+            <a class="button" href="#products">Explore Products →</a>
+        </div>
+
+        <div class="hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900"
+                alt="Premium wireless headphones">
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="benefit">
+            <span>↗</span>
+            <div>
+                <strong>Fast Delivery</strong>
+                <p>Convenient shipping</p>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <span>◇</span>
+            <div>
+                <strong>Quality Products</strong>
+                <p>Carefully selected tech</p>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <span>◎</span>
+            <div>
+                <strong>Customer Support</strong>
+                <p>Here when you need us</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="categories">
+        <div class="section-heading">
+            <h2>Find Your Next Upgrade</h2>
+            <p>Technology for every part of your day.</p>
+        </div>
+
+        <div class="category-grid">
+            <div class="category">
+                <div class="symbol">💻</div>
+                <h3>Computers</h3>
+                <p>Power your ideas</p>
+            </div>
+
+            <div class="category">
+                <div class="symbol">📱</div>
+                <h3>Smartphones</h3>
+                <p>Stay connected</p>
+            </div>
+
+            <div class="category">
+                <div class="symbol">🎧</div>
+                <h3>Audio</h3>
+                <p>Hear every detail</p>
+            </div>
+
+            <div class="category">
+                <div class="symbol">⌚</div>
+                <h3>Wearables</h3>
+                <p>Smart everyday living</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="section-heading">
+            <h2>Featured Products</h2>
+            <p>Discover gadgets worth getting excited about.</p>
+        </div>
+
+        <div class="product-grid">
+
+            <article class="product">
+                <img
+                    src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500"
+                    alt="Laptop">
+                <div class="product-info">
+                    <h3>Ultra Laptop</h3>
+                    <p>Portable power for work and study.</p>
+                    <div class="product-bottom">
+                        <span class="price">₹54,999</span>
+                        <a class="cart" href="#offer">View Item ↗</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product">
+                <img
+                    src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500"
+                    alt="Smartphone">
+                <div class="product-info">
+                    <h3>Smartphone Pro</h3>
+                    <p>Modern design and everyday performance.</p>
+                    <div class="product-bottom">
+                        <span class="price">₹29,999</span>
+                        <a class="cart" href="#offer">View Item ↗</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product">
+                <img
+                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500"
+                    alt="Wireless headphones">
+                <div class="product-info">
+                    <h3>Wireless Audio</h3>
+                    <p>Comfortable listening, wherever you go.</p>
+                    <div class="product-bottom">
+                        <span class="price">₹4,999</span>
+                        <a class="cart" href="#offer">View Item ↗</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product">
+                <img
+                    src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500"
+                    alt="Smart watch">
+                <div class="product-info">
+                    <h3>Smart Watch</h3>
+                    <p>Useful features at a glance.</p>
+                    <div class="product-bottom">
+                        <span class="price">₹6,999</span>
+                        <a class="cart" href="#offer">View Item ↗</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section id="offer">
+        <div>
+            <p class="eyebrow">THE NEXT-GEN SALE</p>
+            <h2>Make Room for<br>Something Better.</h2>
+            <p>Explore selected technology at special prices.</p>
+            <a class="button" href="#products">Discover Deals →</a>
+        </div>
+
+        <div class="discount">TECH<br>UPGRADE</div>
+    </section>
+
+    <footer>
+        <strong>TechZone.</strong>
+        <p>Technology for a smarter tomorrow.</p>
+        <p>© 2026 TechZone</p>
+    </footer>
+
+</body>
+</html>

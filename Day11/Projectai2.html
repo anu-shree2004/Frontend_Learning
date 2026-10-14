@@ -1,0 +1,465 @@
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>GlowUp Beauty Salon</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf7ff;
+            color: #333;
+        }
+
+        /* Navigation */
+
+        header {
+            background-color: #4b286d;
+            color: white;
+            padding: 20px 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 26px;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #e5c8ff;
+        }
+
+        /* Welcome Section */
+
+        #home {
+            background-color: #eee2ff;
+            padding: 60px 30px;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .intro {
+            max-width: 450px;
+        }
+
+        .intro h2 {
+            color: #4b286d;
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .intro a {
+            display: inline-block;
+            background-color: #7043a0;
+            color: white;
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 5px;
+        }
+
+        .intro a:hover {
+            background-color: #4b286d;
+        }
+
+        .hero-image {
+            width: 350px;
+            max-width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        /* Services */
+
+        #services {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #services h2 {
+            color: #4b286d;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            margin-bottom: 30px;
+        }
+
+        .service-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .service {
+            background-color: white;
+            width: 260px;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #e4d4f5;
+        }
+
+        .service .emoji {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .service h3 {
+            color: #7043a0;
+            margin-bottom: 12px;
+        }
+
+        .service p {
+            line-height: 1.6;
+        }
+
+        .service:hover {
+            background-color: #f1e7ff;
+        }
+
+        /* About Us */
+
+        #about {
+            background-color: #f1e7ff;
+            padding: 45px 25px;
+            text-align: center;
+        }
+
+        #about h2 {
+            color: #4b286d;
+            margin-bottom: 18px;
+        }
+
+        #about p {
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        /* Customer Reviews */
+
+        #reviews {
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        #reviews h2 {
+            color: #4b286d;
+            margin-bottom: 25px;
+        }
+
+        .review-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .review {
+            background-color: white;
+            border: 1px solid #e4d4f5;
+            border-radius: 10px;
+            padding: 22px;
+            width: 280px;
+        }
+
+        .review p {
+            line-height: 1.7;
+        }
+
+        .review h3 {
+            color: #7043a0;
+            margin-top: 15px;
+        }
+
+        /* Booking */
+
+        #booking {
+            background-color: #4b286d;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        #booking h2 {
+            margin-bottom: 15px;
+        }
+
+        #booking p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        #booking a {
+            display: inline-block;
+            background-color: white;
+            color: #4b286d;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        #booking a:hover {
+            background-color: #e5c8ff;
+        }
+
+        /* Footer */
+
+        footer {
+            background-color: #29163b;
+            color: white;
+            padding: 22px;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        /* Mobile Layout */
+
+        @media (max-width: 600px) {
+
+            header {
+                flex-direction: column;
+                gap: 18px;
+                padding: 20px;
+            }
+
+            nav {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .intro h2 {
+                font-size: 30px;
+            }
+
+            #home {
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <header>
+
+        <h1>GlowUp Beauty</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#booking">Contact</a>
+        </nav>
+
+    </header>
+
+    <!-- Home -->
+
+    <div id="home">
+
+        <div class="intro">
+
+            <h2>Feel Beautiful. Feel Confident.</h2>
+
+            <p>
+                Welcome to GlowUp Beauty Salon, your destination for
+                relaxation, self-care and beauty. Discover treatments
+                designed to help you look and feel your best.
+            </p>
+
+            <a href="#services">Explore Our Services</a>
+
+        </div>
+
+        <img class="hero-image"
+             src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700"
+             alt="Beauty salon interior">
+
+    </div>
+
+    <!-- Services -->
+
+    <div id="services">
+
+        <h2>Our Beauty Services</h2>
+
+        <p class="subtitle">
+            A little self-care goes a long way.
+        </p>
+
+        <div class="service-container">
+
+            <div class="service">
+
+                <div class="emoji">💇‍♀️</div>
+
+                <h3>Hair Styling</h3>
+
+                <p>
+                    Haircuts, hair spa and styling to give your hair
+                    a fresh and beautiful look.
+                </p>
+
+            </div>
+
+            <div class="service">
+
+                <div class="emoji">💅</div>
+
+                <h3>Nail Care</h3>
+
+                <p>
+                    Manicures, nail art and relaxing treatments
+                    for beautifully cared-for nails.
+                </p>
+
+            </div>
+
+            <div class="service">
+
+                <div class="emoji">✨</div>
+
+                <h3>Skin Care</h3>
+
+                <p>
+                    Refreshing facials and skincare treatments
+                    for a relaxing beauty experience.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- About -->
+
+    <div id="about">
+
+        <h2>A Little About Us</h2>
+
+        <p>
+            At GlowUp Beauty, we believe beauty begins with confidence.
+            Our salon offers a welcoming atmosphere where you can take
+            a break from your busy day and enjoy some time for yourself.
+            We focus on comfort, personal care and helping every customer
+            feel special.
+        </p>
+
+    </div>
+
+    <!-- Reviews -->
+
+    <div id="reviews">
+
+        <h2>What Our Customers Say</h2>
+
+        <div class="review-container">
+
+            <div class="review">
+
+                <p>
+                    "The salon looks beautiful, and I loved my hairstyle.
+                    The whole experience was relaxing!"
+                </p>
+
+                <h3>— Priya</h3>
+
+            </div>
+
+            <div class="review">
+
+                <p>
+                    "The staff were friendly, and the service was wonderful.
+                    I would love to visit again."
+                </p>
+
+                <h3>— Sneha</h3>
+
+            </div>
+
+            <div class="review">
+
+                <p>
+                    "A lovely place for some self-care. The atmosphere
+                    was peaceful and welcoming."
+                </p>
+
+                <h3>— Aishwarya</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Booking -->
+
+    <div id="booking">
+
+        <h2>Ready for Your Glow-Up?</h2>
+
+        <p>
+            Take some time for yourself and plan your next beauty session.
+        </p>
+
+        <a href="mailto:hello@glowup.example">
+            Contact Our Salon
+        </a>
+
+    </div>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>© 2026 GlowUp Beauty Salon</p>
+
+        <p>Beauty • Care • Confidence</p>
+
+    </footer>
+
+</body>
+
+</html>
+```

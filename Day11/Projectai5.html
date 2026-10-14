@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenLeaf - Botanical Living</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf8f0;
+            color: #344735;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: Georgia, serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Announcement */
+
+        .announcement {
+            background: #173b2b;
+            color: #f5f2e8;
+            text-align: center;
+            padding: 9px;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        /* Header */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            background: #faf8f0;
+            border-bottom: 1px solid #e5e4d8;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: #21452e;
+        }
+
+        .logo span {
+            display: block;
+            font: 9px Arial, sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #8a9d6c;
+        }
+
+        /* Hero section */
+
+        .hero {
+            display: grid;
+            grid-template-columns: 48% 52%;
+            min-height: 550px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            padding: 75px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: appear 1s ease;
+        }
+
+        .eyebrow {
+            color: #82936b;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            color: #193c29;
+            font-size: clamp(42px, 5vw, 68px);
+            line-height: 1.12;
+            font-weight: normal;
+        }
+
+        .hero h1 em {
+            color: #81946c;
+        }
+
+        .hero p {
+            color: #6b7165;
+            font-size: 14px;
+            margin: 24px 0;
+            max-width: 420px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: fit-content;
+            padding: 13px 24px;
+            background: #21452e;
+            color: white;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #7c9167;
+            transform: translateY(-3px);
+        }
+
+        .hero-note {
+            margin-top: 35px;
+            font-family: Georgia, serif;
+            font-style: italic;
+            font-size: 13px;
+            color: #82936b;
+        }
+
+        .hero-image {
+            min-height: 550px;
+            overflow: hidden;
+            border-radius: 45% 0 0 45%;
+        }
+
+        .hero-image img {
+            height: 100%;
+            transition: transform 0.8s;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Features */
+
+        .features {
+            background: #e3e9d8;
+            padding: 40px 7%;
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .feature {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            border-right: 1px solid #cbd5bf;
+        }
+
+        .feature:last-child {
+            border-right: none;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            transition: transform 0.3s;
+        }
+
+        .feature:hover .feature-icon {
+            transform: rotate(-12deg) scale(1.15);
+        }
+
+        .feature h3 {
+            font-size: 19px;
+            margin: 8px 0;
+            color: #21452e;
+        }
+
+        .feature p {
+            font-size: 12px;
+            color: #697263;
+        }
+
+        /* Article section */
+
+        .articles {
+            padding: 85px 7%;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 35px;
+            gap: 20px;
+        }
+
+        .section-heading h2 {
+            font-size: 40px;
+            font-weight: normal;
+            color: #21452e;
+        }
+
+        .section-heading p {
+            max-width: 400px;
+            font-size: 13px;
+            color: #777b70;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .article:nth-child(2) {
+            margin-top: 35px;
+        }
+
+        .article:nth-child(3) {
+            margin-top: 70px;
+        }
+
+        .article-image {
+            height: 270px;
+            overflow: hidden;
+            background: #e1e4d7;
+        }
+
+        .article-image img {
+            height: 100%;
+            transition: transform 0.6s;
+        }
+
+        .article:hover img {
+            transform: scale(1.06);
+        }
+
+        .article-category {
+            color: #87966f;
+            font-size: 10px;
+            letter-spacing: 2px;
+            margin: 18px 0 8px;
+            text-transform: uppercase;
+        }
+
+        .article h3 {
+            font-size: 23px;
+            font-weight: normal;
+            line-height: 1.3;
+            color: #21452e;
+        }
+
+        .article p {
+            font-size: 13px;
+            color: #73766c;
+            margin: 12px 0 18px;
+        }
+
+        .read-more {
+            font-size: 11px;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #82936b;
+            padding-bottom: 4px;
+        }
+
+        /* Mission section */
+
+        .mission {
+            display: flex;
+            background: #183b2a;
+            color: #f5f3e9;
+        }
+
+        .mission-image {
+            width: 50%;
+            min-height: 440px;
+            overflow: hidden;
+        }
+
+        .mission-image img {
+            height: 100%;
+            transition: transform 0.8s;
+        }
+
+        .mission-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .mission-content {
+            width: 50%;
+            padding: 65px 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mission-content .eyebrow {
+            color: #bdcba8;
+        }
+
+        .mission-content h2 {
+            font-size: 43px;
+            font-weight: normal;
+            line-height: 1.2;
+        }
+
+        .mission-content p {
+            font-size: 13px;
+            color: #d3dccd;
+            margin: 22px 0;
+        }
+
+        .mission-content .btn {
+            background: #e3e9d8;
+            color: #21452e;
+        }
+
+        /* Categories */
+
+        .categories {
+            background: #f0eee3;
+            padding: 80px 7%;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .category {
+            height: 330px;
+            position: relative;
+            overflow: hidden;
+            background: #dce3d3;
+        }
+
+        .category img {
+            height: 100%;
+            transition: transform 0.7s;
+        }
+
+        .category:hover img {
+            transform: scale(1.08);
+        }
+
+        .category::after {
+            content: "";
+            position: absolute;
+            inset: 40% 0 0;
+            background: linear-gradient(transparent, #102e20c9);
+        }
+
+        .category-label {
+            position: absolute;
+            bottom: 22px;
+            left: 22px;
+            z-index: 1;
+            color: white;
+        }
+
+        .category-label span {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .category-label h3 {
+            font-size: 29px;
+            font-weight: normal;
+        }
+
+        /* Quote */
+
+        .quote {
+            padding: 70px 10%;
+            background: #e2e8d7;
+            text-align: center;
+        }
+
+        .quote h2 {
+            font-size: 36px;
+            font-style: italic;
+            font-weight: normal;
+            max-width: 800px;
+            margin: auto;
+            color: #21452e;
+        }
+
+        .quote p {
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        /* Newsletter */
+
+        .newsletter {
+            padding: 75px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .newsletter h2 {
+            font-size: 37px;
+            font-weight: normal;
+            color: #21452e;
+        }
+
+        .newsletter p {
+            font-size: 13px;
+            color: #74786c;
+            margin-top: 10px;
+        }
+
+        .newsletter form {
+            display: flex;
+            border-bottom: 1px solid #9da792;
+            min-width: 45%;
+        }
+
+        .newsletter input {
+            width: 100%;
+            min-width: 0;
+            padding: 15px 5px;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+
+        .newsletter button {
+            background: #21452e;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter button:hover {
+            background: #7c9167;
+        }
+
+        /* Footer */
+
+        footer {
+            background: #102f21;
+            color: #f0f1e8;
+            padding: 55px 7% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 45px;
+            padding-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: #bdc9b7;
+            font-size: 12px;
+            max-width: 320px;
+            margin-top: 18px;
+        }
+
+        .footer-column h3 {
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #bdc9b7;
+            font-size: 12px;
+            margin: 9px 0;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #405846;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 11px;
+            color: #b5c1ae;
+        }
+
+        /* Animation */
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+
+        @media (max-width: 850px) {
+            header {
+                padding: 20px 5%;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            .hero-content {
+                padding: 50px 7%;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .features {
+                flex-wrap: wrap;
+            }
+
+            .feature {
+                flex: 1 1 40%;
+            }
+
+            .article-grid {
+                gap: 18px;
+            }
+
+            .article-image {
+                height: 220px;
+            }
+
+            .article h3 {
+                font-size: 20px;
+            }
+
+            .mission-content {
+                padding: 40px 6%;
+            }
+
+            .mission-content h2 {
+                font-size: 34px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            nav {
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px 22px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                padding: 55px 8%;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-image {
+                min-height: 330px;
+                border-radius: 35% 0 0 0;
+            }
+
+            .features {
+                padding: 25px 5%;
+                gap: 10px;
+            }
+
+            .feature {
+                flex: 1 1 40%;
+                border: none;
+            }
+
+            .articles,
+            .categories {
+                padding: 55px 7%;
+            }
+
+            .section-heading {
+                display: block;
+            }
+
+            .section-heading h2 {
+                font-size: 32px;
+            }
+
+            .section-heading p {
+                margin-top: 12px;
+            }
+
+            .article-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .article:nth-child(2),
+            .article:nth-child(3) {
+                margin-top: 0;
+            }
+
+            .article-image {
+                height: 270px;
+            }
+
+            .mission {
+                flex-direction: column;
+            }
+
+            .mission-image,
+            .mission-content {
+                width: 100%;
+            }
+
+            .mission-image {
+                min-height: 280px;
+                height: 280px;
+            }
+
+            .mission-content {
+                padding: 45px 8%;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category {
+                height: 300px;
+            }
+
+            .quote {
+                padding: 50px 8%;
+            }
+
+            .quote h2 {
+                font-size: 27px;
+            }
+
+            .newsletter {
+                padding: 55px 7%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 25px;
+            }
+
+            .newsletter h2 {
+                font-size: 31px;
+            }
+
+            .newsletter form {
+                min-width: 0;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px 20px;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="announcement">
+        GROW SLOWLY · LIVE MINDFULLY · LOVE NATURE
+    </div>
+
+    <header>
+        <a href="#home" class="logo">
+            GreenLeaf
+            <span>Botanical Living Journal</span>
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#articles">Articles</a>
+            <a href="#plants">Plant Care</a>
+            <a href="#categories">Lifestyle</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="eyebrow">Nature · Wellness · Sustainability</div>
+
+                <h1>Let Nature <em>Inspire</em> a Kinder You.</h1>
+
+                <p>
+                    Discover plant stories, mindful living tips and
+                    beautiful ideas to bring more greenery, balance
+                    and natural beauty into your everyday life.
+                </p>
+
+                <a href="#articles" class="btn">EXPLORE ARTICLES ↗</a>
+
+                <div class="hero-note">
+                    Bring the outside in. Let your soul grow.
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1200&q=85"
+                    alt="Beautiful sunlit room with plants">
+            </div>
+        </section>
+
+        <section class="features" id="plants">
+            <div class="feature">
+                <div class="feature-icon">♧</div>
+                <h3>Plant Care</h3>
+                <p>Simple guides to help your plants thrive.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🌍</div>
+                <h3>Sustainable Living</h3>
+                <p>Everyday choices for a greener lifestyle.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">✿</div>
+                <h3>Botanical Stories</h3>
+                <p>Explore the beauty of the natural world.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">⌂</div>
+                <h3>Home & Garden</h3>
+                <p>Create peaceful spaces filled with green.</p>
+            </div>
+        </section>
+
+        <section class="articles" id="articles">
+            <div class="section-heading">
+                <div>
+                    <div class="eyebrow">Stories inspired by nature</div>
+                    <h2>Latest Articles</h2>
+                </div>
+                <p>Fresh inspiration for a more natural and mindful life.</p>
+            </div>
+
+            <div class="article-grid">
+
+                <article class="article">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=85"
+                             alt="Indoor plants in pots">
+                    </div>
+                    <div class="article-category">Plant Care</div>
+                    <h3>10 Easy Indoor Plants for Beginners</h3>
+                    <p>Bring life into your home with low-maintenance,
+                       beautiful plants that are easy to care for.</p>
+                    <a href="#plants" class="read-more">READ MORE ↗</a>
+                </article>
+
+                <article class="article">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=85"
+                             alt="Fresh flowers in natural light">
+                    </div>
+                    <div class="article-category">Lifestyle</div>
+                    <h3>A Mindful Morning with Nature</h3>
+                    <p>Discover small rituals that make your mornings
+                       calmer, brighter and more refreshing.</p>
+                    <a href="#categories" class="read-more">READ MORE ↗</a>
+                </article>
+
+                <article class="article">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=85"
+                             alt="Gardening and growing plants">
+                    </div>
+                    <div class="article-category">Sustainability</div>
+                    <h3>Creating a Greener Garden</h3>
+                    <p>Simple gardening ideas that support pollinators
+                       and help create a healthier environment.</p>
+                    <a href="#categories" class="read-more">READ MORE ↗</a>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="mission" id="about">
+            <div class="mission-image">
+                <img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1200&q=85"
+                     alt="Large tropical green leaves">
+            </div>
+
+            <div class="mission-content">
+                <div class="eyebrow">A greener tomorrow</div>
+                <h2>Plants. People.<br>A Healthier Planet.</h2>
+                <p>
+                    At GreenLeaf, we believe in the power of plants
+                    to create healthier homes and happier lives.
+                    Join us in exploring, learning and living
+                    more consciously every day.
+                </p>
+                <a href="#categories" class="btn">OUR MISSION ↗</a>
+            </div>
+        </section>
+
+        <section class="categories" id="categories">
+            <div class="section-heading">
+                <div>
+                    <div class="eyebrow">Discover your next inspiration</div>
+                    <h2>Explore by Category</h2>
+                </div>
+                <p>Find ideas to grow your garden, nurture yourself
+                   and live in harmony with nature.</p>
+            </div>
+
+            <div class="category-grid">
+
+                <a href="#articles" class="category">
+                    <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=85"
+                         alt="Green indoor plants">
+                    <div class="category-label">
+                        <span>Learn and grow</span>
+                        <h3>Plant Care</h3>
+                    </div>
+                </a>
+
+                <a href="#articles" class="category">
+                    <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=900&q=85"
+                         alt="Natural home interior">
+                    <div class="category-label">
+                        <span>Live with intention</span>
+                        <h3>Lifestyle</h3>
+                    </div>
+                </a>
+
+                <a href="#articles" class="category">
+                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=900&q=85"
+                         alt="Green garden">
+                    <div class="category-label">
+                        <span>Reconnect with earth</span>
+                        <h3>Gardening</h3>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <section class="quote">
+            <h2>
+                “The earth has music for those who listen
+                and beauty for those who slow down.”
+            </h2>
+            <p>A LITTLE REMINDER FROM GREENLEAF</p>
+        </section>
+
+        <section class="newsletter" id="newsletter">
+            <div>
+                <div class="eyebrow">Letters from the garden</div>
+                <h2>Join the GreenLeaf Community</h2>
+                <p>
+                    Receive plant tips, botanical stories and
+                    inspiration for a greener everyday life.
+                </p>
+            </div>
+
+            <form action="mailto:hello@greenleaf.example" method="post"
+                  enctype="text/plain">
+                <input type="email" name="email"
+                       placeholder="Enter your email address" required>
+                <button type="submit">SUBSCRIBE ↗</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#home" class="logo">
+                    GreenLeaf
+                    <span>Botanical Living Journal</span>
+                </a>
+                <p>
+                    Inspiring a mindful, green and beautiful life
+                    through the power of plants and the wonders of nature.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#articles">Articles</a>
+                <a href="#plants">Plant Care</a>
+                <a href="#categories">Lifestyle</a>
+                <a href="#about">About</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <a href="#plants">Plant Guides</a>
+                <a href="#categories">Gardening Ideas</a>
+                <a href="#categories">Sustainable Living</a>
+                <a href="#newsletter">Newsletter</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 GreenLeaf. All rights reserved.</p>
+            <p>Designed with love for a greener tomorrow.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

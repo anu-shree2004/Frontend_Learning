@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Travel Page</title>
+</head>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: darkblue;
+            padding: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            color: white;
+            font-size: 25px;
+        }
+
+        nav div {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: lightblue;
+        }
+
+        #home {
+            background-color: lightblue;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        #home h2 {
+            color: darkblue;
+            margin-bottom: 15px;
+        }
+
+        #home p {
+            width: 70%;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        #destination {
+            background-color: white;
+            padding: 40px 20px;
+        }
+
+        #destination h2 {
+            color: darkblue;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        #destination p {
+            width: 70%;
+            margin: auto;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        #why {
+            background-color: #dceff3;
+            padding: 40px 20px;
+        }
+
+        #why h2 {
+            color: darkblue;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        #why p {
+            width: 70%;
+            margin: auto;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        img {
+            display: block;
+            margin: 25px auto;
+            border: 3px solid darkblue;
+            border-radius: 8px;
+        }
+
+        #video {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: white;
+        }
+
+        #video h2 {
+            color: darkblue;
+            margin-bottom: 15px;
+        }
+
+        video {
+            border: 3px solid darkblue;
+            border-radius: 8px;
+        }
+
+        #audio {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #dceff3;
+        }
+
+        #audio h2 {
+            color: darkblue;
+            margin-bottom: 15px;
+        }
+
+        audio {
+            margin-top: 10px;
+        }
+
+        #tips {
+            background-color: white;
+            padding: 40px 20px;
+        }
+
+        #tips h2 {
+            color: darkblue;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        #tips p {
+            width: 70%;
+            margin: auto;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        #thankyou {
+            background-color: lightblue;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        #thankyou h2 {
+            color: darkblue;
+            margin-bottom: 15px;
+        }
+
+        #thankyou p {
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: darkblue;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            width: 100%;
+        }
+
+    </style>
+<body>
+
+    <nav>
+        <h1>My Travel Page</h1>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#destination">Destination</a>
+            <a href="#video">Video</a>
+            <a href="#tips">Travel Tips</a>
+        </div>
+    </nav>
+
+    <div id="home">
+
+        <h2>Welcome to My Travel Page</h2>
+        <p>
+            Traveling allows us to explore new places, experience different cultures
+            and create wonderful memories. There are many beautiful destinations
+            around the world.
+        </p>
+        <img src="/img/12.jpg"
+             alt="Beautiful Travel Destination"
+             width="500px"
+             height="300px">
+    </div>
+
+    <div id="destination">
+        <h2>My Favourite Destination</h2>
+        <p>
+            My favourite destination is Paris. It is famous for its beautiful
+            architecture, delicious food, museums and the Eiffel Tower.
+        </p>
+    </div>
+
+    <div id="why">
+        <h2>Why I Like Travelling</h2>
+        <p>
+            I like travelling because it helps me relax, learn new things and
+            experience different cultures. It also gives me an opportunity to
+            spend quality time with family and friends.
+        </p>
+    </div>
+
+    <div id="video">
+        <h2>Travel Video</h2>
+        <video src="/video/VID-20220904-WA0000.mp4"
+               width="700px"
+               height="400px"
+               controls>
+        </video>
+    </div>
+
+    <div id="audio">
+        <h2>Travel Audio</h2>
+        <audio src="/audio/duck-toy-sound.mp3"
+               controls>
+        </audio>
+    </div>
+
+    <div id="tips">
+        <h2>Travel Tips</h2>
+        <p>
+            Plan your trip before travelling and keep all your important
+            documents safe. Carry only the things you need and always
+            check the weather before visiting a new place.
+        </p>
+    </div>
+
+    <div id="thankyou">
+        <h2>Thank You</h2>
+        <p>
+            Thank you for visiting my travel page!
+        </p>
+    </div>
+
+    <footer>
+        <p>
+            &copy 2026 My Travel Page
+        </p>
+    </footer>
+</body>
+</html>
